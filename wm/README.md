@@ -31,7 +31,10 @@ Danielle Barker says the production build may not have any vulnerabilities. She 
 
 This came back with 0 vulnerabilities, so I will stop worrying about it.
 
+# deployment
+I watched a video on deploying to github (after some odd detours) and got npm run deploy working. I had to add **homepage** and under scripts **predeploy** and **deploy** (see package.json). I did **npm install gh-pages --save-dev**. I somehow ended up with a master and a main branch, and removed master.
+
 # commands from terminal
 From C:\MyCode\word-mastermind\wm folder
 * npm start to run the development server
-* npm run build to build for production
+* npm run deploy to deploy to https://tilerunner.github.io/word-mastermind/

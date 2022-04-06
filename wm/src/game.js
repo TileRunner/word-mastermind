@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-// import { isMobile } from 'react-device-detect'
+import { isMobile } from 'react-device-detect'
 import ShowCustomKeyboard from './showCustomKeyboard';
 import { isWordValid } from './wordfunctions';
 
 const Game = ({gameOptions, setGameOptions}) => {
-    const isMobile = false;
     const [guess, setGuess] = useState('');
     const [guesses, setGuesses] = useState([]);
     const [solved, setSolved] = useState(false);
@@ -45,7 +44,7 @@ const Game = ({gameOptions, setGameOptions}) => {
         }
     }
     function copyToClipboard() {
-        let copyText = gameOptions.showHeader ? "Word Mastermind\nhttps://tilerunner.herokuapp.com/\n" : "";
+        let copyText = gameOptions.showHeader ? "Word Mastermind\nhttps://tilerunner.github.io/word-mastermind/\n" : "";
         copyText = `${copyText}${guesses.length} guesses\n`;
         for (let g = guesses.length - 1; g > -1; g--) {
             const guessWord = guesses[g];
@@ -55,15 +54,16 @@ const Game = ({gameOptions, setGameOptions}) => {
             for (let l = 0; l < guessWord.length; l++) {
                 const letterResult = calcLetterResult(guessWord, l); // C, I, or W
                 if (letterResult === 'C') {
-                    copyText = copyText + gameOptions.ciw.c;
+                    copyText += gameOptions.ciw.c;
                 } else if (letterResult === 'I') {
-                    copyText = copyText + gameOptions.ciw.i;
+                    copyText += gameOptions.ciw.i;
                 } else {
-                    copyText = copyText + gameOptions.ciw.w;
+                    copyText += gameOptions.ciw.w;
                 }
             }
-            copyText = copyText + "\n";
+            copyText += "\n";
         }
+        copyText += gameOptions.secretWord;
         navigator.clipboard.writeText(copyText);
         alert(`Clipboard updated`);
     }
