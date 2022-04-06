@@ -1,0 +1,133 @@
+.optionsDiv {
+    margin-top: 5px;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    width: fit-content;
+    padding: 2px 3px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    text-align: left;
+}
+/* optionsCheckbox:
+    Main code taken from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
+    When checked use <div className="optionsCheckbox On" onClick={some code to toggle whether checked}><label>Some text</label></div> 
+    When unchecked use  <div className="optionsCheckbox" onClick={some code to toggle whether checked}><label>Some text</label></div> 
+*/
+.optionsCheckbox {
+    line-height: 24px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.optionsCheckbox label {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    /* 16px of the checkbox and 6px between it and text*/
+    padding-left: 22px;
+}
+.optionsCheckbox label::before,
+.optionsCheckbox label::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+}
+/* The box */
+.optionsCheckbox label::before {
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+    left: 0px;
+    top: 3px;
+}
+/* The check mark (<div className="optionsCheckbox On">) */
+.optionsCheckbox.On label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+    left: 4px;
+    top: 7px;
+}
+.optionsRadio {
+    line-height: 24px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.optionsRadio label {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    /* 16px of the radio circle and 6px between it and text*/
+    padding-left: 22px;
+}
+.optionsRadio label::before,
+.optionsRadio label::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+}
+/* The circle */
+.optionsRadio label::before {
+    height: 16px;
+    width: 16px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: blue;
+    left: 0px;
+    top: 3px;
+}
+/* The circle filler (<div className="optionsRadio On"> ... use <span> instead of <div> to make them side by side) */
+.optionsRadio.On label::before {
+    background-color: white;
+}
+/* .optionsRadio.On label::after {
+    height: 8px;
+    width: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white;
+    left: 4px;
+    top: 7px;
+} */
+
+.emojiDiv {
+    text-align: center;
+}
+
+.lenDiv {
+    font-size: 16px;
+    padding-bottom: 2px;
+    background-color: blue;
+    color: whitesmoke;
+    text-align: center;
+}
+.lenSelected {
+    background-color: whitesmoke;
+    color: black;
+    margin-right: 2px;
+}
+.lenSelected:focus {
+    outline: none;
+}
+.lenUnselected {
+    background-color: black;
+    color: whitesmoke;
+    outline: none;
+    margin-right: 2px;
+}
+.lenUnselected:focus {
+    outline: none;
+}
+
+.startPuzzleDiv {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: cyan;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}

@@ -1,0 +1,39 @@
+.customKeyboard {
+    margin-top: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 0px;
+    background-color: var(--trcssPageBG);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    width: 370px;
+}
+.customKeyboard div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.customKeyboard div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.customKeyboard div:nth-child(3) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.customKeyboard span {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: blue;
+    text-align: center;
+    margin: 0px 2px;
+    padding: 5px 8px;
+    font-size: large;
+}
