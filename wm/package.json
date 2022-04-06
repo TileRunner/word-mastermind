@@ -2,7 +2,7 @@
   "name": "wm",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tilerunner.github.io/wm",
+  "homepage": "https://tilerunner.github.io/word-mastermind",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
