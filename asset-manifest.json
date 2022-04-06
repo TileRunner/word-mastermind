@@ -2,8 +2,8 @@
   "files": {
     "main.css": "/word-mastermind/static/css/main.38530058.css",
     "main.js": "/word-mastermind/static/js/main.5ba63236.js",
-    "static/media/my-logo.svg": "/word-mastermind/static/media/my-logo.f2b91043f0e6f8bac246a397bdfa6d37.svg",
     "index.html": "/word-mastermind/index.html",
+    "static/media/my-logo.svg": "/word-mastermind/static/media/my-logo.f2b91043f0e6f8bac246a397bdfa6d37.svg",
     "main.38530058.css.map": "/word-mastermind/static/css/main.38530058.css.map",
     "main.5ba63236.js.map": "/word-mastermind/static/js/main.5ba63236.js.map"
   },
