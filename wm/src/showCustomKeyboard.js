@@ -40,7 +40,7 @@ export default function ShowCustomKeyboard({inputWord, handleInputLetter, handle
                 <span onClick={() => { handleInputLetter('B'); } }>B</span>
                 <span onClick={() => { handleInputLetter('N'); } }>N</span>
                 <span onClick={() => { handleInputLetter('M'); } }>M</span>
-                <span onClick={() => { inputWord.length > 0 && handleDeleteLetter(); } } class="tm_Backspace"></span>
+                <span onClick={() => { inputWord.length > 0 && handleDeleteLetter(); } } class="backspace"></span>
             </div>
             {divUnderKeyboard}
         </div>

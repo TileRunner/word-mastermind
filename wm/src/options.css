@@ -1,9 +1,10 @@
 .optionsDiv {
-    margin-top: 5px;
+    margin-left: 1vw;
+    margin-top: 1vh;
     background-color: blue;
     color: white;
     font-size: 20px;
-    width: fit-content;
+    width: 97vw;
     padding: 2px 3px;
     border: 1px solid blue;
     border-radius: 10px;
@@ -84,50 +85,49 @@
 .optionsRadio.On label::before {
     background-color: white;
 }
-/* .optionsRadio.On label::after {
-    height: 8px;
-    width: 8px;
-    border: 1px solid white;
-    border-radius: 50%;
-    background-color: white;
-    left: 4px;
-    top: 7px;
-} */
+/* The label text */
+.optionsRadio label {
+    font-size: calc(10px + 2vw);
+    margin-bottom: 2vw; /* make room for bigger fonts so they don't overlap from row to row */
+}
 
 .emojiDiv {
+    font-size: calc(10px + 2vw);
     text-align: center;
 }
 
 .lenDiv {
-    font-size: 16px;
-    padding-bottom: 2px;
+    min-width: 80vw;
+    font-size: calc(10px + 2vw);
     background-color: blue;
     color: whitesmoke;
     text-align: center;
+    margin-bottom: 2vh;
+}
+.lenDiv span {
+    padding: 1vh 2.5vw;
+    margin-right: 3vw;
 }
 .lenSelected {
     background-color: whitesmoke;
     color: black;
-    margin-right: 2px;
-}
-.lenSelected:focus {
-    outline: none;
 }
 .lenUnselected {
     background-color: black;
     color: whitesmoke;
-    outline: none;
-    margin-right: 2px;
 }
-.lenUnselected:focus {
-    outline: none;
+.lenUnselected:hover {
+    cursor: pointer;
 }
 
 .startPuzzleDiv {
     border: 1px solid black;
     border-radius: 10px;
     background-color: cyan;
-    margin-top: 5px;
-    padding-bottom: 5px;
+    margin-top: 3vh;
+    padding: 3vh 3vw;
     text-align: center;
+}
+.startPuzzleDiv button {
+    font-size: calc(10px + 2vw);
 }

@@ -3,6 +3,7 @@ import { pickRandomWord } from './wordfunctions';
 
 const Options = ({setGameOptions}) => {
     const lenAllowedArray = [3,4,5,6,7,8,9];
+    const [loading, setLoading] = useState(false);
     const [mode, setMode] = useState('easy');
     const [wordLength, setWordLength] = useState(5);
     const [showHeader, setShowHeader] = useState(true); // whether to show "Word Mastermind" and link in clipboard capture
@@ -15,6 +16,7 @@ const Options = ({setGameOptions}) => {
         {c:"✅",i:"🔁",w:"❌"}
     ];
     async function handleStartPuzzle() {
+        setLoading(true);
         let randomword = await pickRandomWord(wordLength);
         let newGameOptions = {
             set: true,
@@ -51,7 +53,7 @@ const Options = ({setGameOptions}) => {
             <label>Guess words in clipboard</label>
         </div>
         <div className='emojiDiv'>
-            <h4>Emoji Theme</h4>
+            <p>Emoji Theme</p>
             <div className={theme === 0 ? 'optionsRadio On' : 'optionsRadio'} onClick={() => {setTheme(0);}}>
                 <label>{themes[0].c}{themes[0].i}{themes[0].w}</label>
             </div>
@@ -63,21 +65,25 @@ const Options = ({setGameOptions}) => {
             </div>
         </div>
         <div className='lenDiv'>
-            <h4 className='AlignCenter'>Word Length</h4>
+            <p className='AlignCenter'>Word Length</p>
             {lenAllowedArray.map((n) => (
-                <button className={n === wordLength ? 'lenSelected' : 'lenUnselected'}
+                <span className={n === wordLength ? 'lenSelected' : 'lenUnselected'}
                     key={`chooseLenMin${n}`}
                     onClick={() => { setWordLength(n); } }
                 >{n}
-                </button>
+                </span>
             ))}
         </div>
+        {loading?
+        <p>Puzzle maker in progress, please wait...</p>
+        :
         <div className="startPuzzleDiv">
-            <button key="startPuzzle" className="optionsButton" onClick={() => { handleStartPuzzle(); } }>
+            <button key="startPuzzle" onClick={() => { handleStartPuzzle(); } }>
                 Start Puzzle
             </button>
         </div>
-    </div>);
+        }
+        </div>);
 }
 
 export default Options;

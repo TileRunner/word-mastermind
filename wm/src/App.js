@@ -9,13 +9,15 @@ import WordMastermind from './wm';
 function App() {
   const [whereTo, setWhereTo] = useState('home');
   return (
-    <div className="App">
+    <div>
       {whereTo === 'home' ?
         <header className="App-header">
           <img src={mylogo} className="App-logo" alt="logo" />
-          <p>Based on the 1970 Mastermind game with colored pegs.</p>
-          <p>Additional options inspired by Wordle.</p>
-          <button onClick={() => {setWhereTo('game');}}>Play !</button>
+          <div className='App-under-logo'>
+            <p>Based on the 1970 Mastermind game with colored pegs.</p>
+            <p>Additional options inspired by Wordle.</p>
+            <button onClick={() => {setWhereTo('game');}}>Play !</button>
+          </div>
         </header>
       :
         <header>

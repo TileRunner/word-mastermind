@@ -7,9 +7,7 @@ const Game = ({gameOptions, setGameOptions}) => {
     const [guess, setGuess] = useState('');
     const [guesses, setGuesses] = useState([]);
     const [solved, setSolved] = useState(false);
-    const [showInitialInfo, setShowInitialInfo] = useState(false); // set info, easy mode info
     const divUnderKeyboard = showDivUnderKeyboard();
-    const displayGuesses = showGuessesTable();
     const promptForGuess = showGuessPrompt();
     const promptForPlayAgain = showPlayAgainPrompt();
 
@@ -63,99 +61,21 @@ const Game = ({gameOptions, setGameOptions}) => {
             }
             copyText += "\n";
         }
-        copyText += gameOptions.secretWord;
+        if (!gameOptions.showGuesses) {
+            copyText += gameOptions.secretWord;
+        }
         navigator.clipboard.writeText(copyText);
         alert(`Clipboard updated`);
     }
     const InitialInfo = <div className="Outertable">
-        <div className="trParagraph AlignLeft">
-            <p>Guesses this word: {guesses.length}</p>
-            {gameOptions.mode === 'easy' && <><p><span className="wmEasyModeLetter wmCorrectLetterCorrectPosition">C</span>orrect position</p>
-                <p><span className="wmEasyModeLetter wmCorrectLetterWrongPosition">I</span>ncorrect position</p>
-                <p><span className="wmEasyModeLetter wmWrongLetter">W</span>rong letter</p>
-            </>}
-        </div>
+        <p>Guesses: {guesses.length}</p>
+        {gameOptions.mode === 'easy' && <>
+            <span className="wmEasyModeLetter wmCorrectLetterCorrectPosition">C</span>orrect position
+            <span className="wmEasyModeLetter wmCorrectLetterWrongPosition MarginLeft">I</span>ncorrect position
+        </>}
     </div>;
-    const MainInfo = <div className="Outertable">
-        <div className="trParagraph">
-            <h3>{solved ? `Secret Word: ${gameOptions.secretWord}` 
-            : `Guess the ${gameOptions.wordLength} letter word:`}</h3>
-            {solved ? promptForPlayAgain : promptForGuess}
-        </div>
-        {displayGuesses}
-    </div>;
-    const BrowserLayout = <div className="container-fluid">
-        <div className="row">
-            <div className="col-lg-6">
-                <div className="row">
-                    <div className="col">{InitialInfo}</div>
-                    <div className="col">{MainInfo}</div>
-                </div>
-            </div>
-        </div>
-    </div>;
-    const MobileLayout = <div>
-        <div>
-            <button className="trButton" onClick={() => { setShowInitialInfo(!showInitialInfo); } }>
-                {showInitialInfo ? "Hide Info" : "Show Info"}
-            </button>
-            {showInitialInfo && InitialInfo}
-        </div>
-        {MainInfo}
-    </div>;
-    return (
-        <div className="trBackground">
-        {isMobile ? MobileLayout : BrowserLayout}
-        </div>
-    );
-
-    function showPlayAgainPrompt() {
-        return <div className="trParagraph">
-            <h4 className="tmCongrats">👏🏽 Solved in {guesses.length} moves! 👏🏽</h4>
-            <button className="trButton"
-            onClick={function () {
-                setGameOptions({set: false});
-            } }
-            >
-                Play Again
-            </button>
-            <button className="trButton" onClick={() => {copyToClipboard();}}>
-                Clipboard
-            </button>
-            </div>;
-    }
-
-    function showGuessPrompt() {
-        return (
-        isMobile ?
-            <ShowCustomKeyboard
-                inputWord={guess}
-                handleInputLetter={handleInputLetter}
-                handleDeleteLetter={handleDeleteLetter}
-                divUnderKeyboard={divUnderKeyboard}
-            ></ShowCustomKeyboard>        
-        :
-            <div className="form-group trParagraph">
-                {guesses.length === 0 ?
-                    <label>First guess:</label>
-                    :
-                    <label>Next guess:</label>
-                }
-                <input className="form-control"
-                    name="guess"
-                    value={guess}
-                    autoComplete="new-password"
-                    onChange={(e) => {
-                        const guessword = e.target.value.toUpperCase().replace( /\W/g , '');
-                        handleUpdatedGuess(guessword);
-                } } />
-            </div>
-        );
-    }
-
-    function showGuessesTable() {
-        return <div>{gameOptions.mode === 'hard' ?
-        <table className="trTable">
+    const displayGuesses = <div>{gameOptions.mode === 'hard' ?
+        <table>
             <thead>
                 <tr>
                     <th>Guess</th>
@@ -175,7 +95,7 @@ const Game = ({gameOptions, setGameOptions}) => {
             </tbody>
         </table>
         :
-        <table className="trTable">
+        <table>
             <tbody>
                 {!solved && guess && <tr key='easymodeguessletters'>
                     {guess.split("").map((l,i) => (
@@ -193,8 +113,65 @@ const Game = ({gameOptions, setGameOptions}) => {
                 ))}
             </tbody>
         </table>
-        }</div>;
+    }</div>;
+    const MainInfo = <div className="Outertable">
+        <h3>{solved ? `Secret Word: ${gameOptions.secretWord}` 
+        : `Guess the ${gameOptions.wordLength} letter word`}</h3>
+        {solved ? promptForPlayAgain : promptForGuess}
+        {displayGuesses}
+    </div>;
+    return (
+        <div className="game">
+            {InitialInfo}
+            {MainInfo}
+        </div>
+    );
+
+    function showPlayAgainPrompt() {
+        return <div>
+            <h4>👏🏽 Solved in {guesses.length} moves! 👏🏽</h4>
+            <button className='MarginLeft'
+            onClick={function () {
+                setGameOptions({set: false});
+            } }
+            >
+                Play Again
+            </button>
+            {gameOptions.mode === 'easy' &&
+            <button className="MarginLeft" onClick={() => {copyToClipboard();}}>
+                Clipboard
+            </button>}
+            </div>;
     }
+
+    function showGuessPrompt() {
+        return (
+        isMobile ?
+            <ShowCustomKeyboard
+                inputWord={guess}
+                handleInputLetter={handleInputLetter}
+                handleDeleteLetter={handleDeleteLetter}
+                divUnderKeyboard={divUnderKeyboard}
+            ></ShowCustomKeyboard>        
+        :
+            <div className="form-group">
+                {guesses.length === 0 ?
+                    <label>First guess:</label>
+                    :
+                    <label>Next guess:</label>
+                }
+                <input className="form-control"
+                    name="guess"
+                    value={guess}
+                    autoComplete="new-password"
+                    onChange={(e) => {
+                        const guessword = e.target.value.toUpperCase().replace( /\W/g , '');
+                        handleUpdatedGuess(guessword);
+                } } />
+            </div>
+        );
+    }
+
 
     function calcCorrectLetterCount(guessletters) {
         let n = 0

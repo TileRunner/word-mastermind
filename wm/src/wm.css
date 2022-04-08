@@ -1,3 +1,10 @@
+.game {
+    margin: 5px;
+    padding: 2px;
+    background-color: blueviolet;
+    width: fit-content;
+    color: white;
+}
 .Outertable {
     border-style: none;
     vertical-align: top;
@@ -8,12 +15,15 @@
 .AlignLeft {
     text-align: left;
 }
+.MarginLeft {
+    margin-left: 5px;
+}
 .wmEasyModeLetter {
     font-family: 'Courier New', Courier, monospace;
-    border: 1px solid white;
+    border: 1px solid black;
     text-align: center;
-    padding: 5px 10px;
-    font-size: larger;
+    padding: 3px 8px;
+    font-size: 20px;
 }
 .wmEasyModeLetter.small {
     width: 40px;
@@ -25,15 +35,17 @@
 }
 .wmCorrectLetterCorrectPosition {
     background-color: greenyellow;
-    color: black !important;
+    color: black;
+    font-weight: bold;
 }
 .wmCorrectLetterWrongPosition {
-    background-color: gold;
-    color: black !important;
+    background-color: cornflowerblue;
+    color: black;
 }
 .wmWrongLetter {
-    background-color: white;
-    color: black !important;
+    background-color: darkgrey;
+    color: black;
+    text-transform: lowercase;
 }
 .wmWordUnderKeyboard {
     font-family: 'Courier New', Courier, monospace;

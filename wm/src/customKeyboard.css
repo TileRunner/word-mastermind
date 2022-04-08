@@ -37,3 +37,9 @@
     padding: 5px 8px;
     font-size: large;
 }
+.backspace {
+    background-color: blue;
+}
+.backspace::before {
+    content: '\003Cx';
+}
