@@ -3,12 +3,17 @@
     margin-top: 1vh;
     background-color: blue;
     color: white;
-    font-size: 20px;
-    width: 97vw;
+    width: 96vw;
     padding: 2px 3px;
     border: 1px solid blue;
     border-radius: 10px;
     text-align: left;
+}
+/* Centre the div containing rows of checkboxes, keeping them left aligned within the centered div
+*/
+.checkboxes {
+    width: fit-content;
+    margin: auto;
 }
 /* optionsCheckbox:
     Main code taken from https://medium.com/claritydesignsystem/pure-css-accessible-checkboxes-and-radios-buttons-54063e759bb3
@@ -17,7 +22,8 @@
 */
 .optionsCheckbox {
     line-height: 24px;
-    font-size: 16px;
+    font-size: calc(16px + 1vw);
+    margin-bottom: 1vw; /* Make room for font so rows do not overlap */
     box-sizing: border-box;
 }
 .optionsCheckbox label {

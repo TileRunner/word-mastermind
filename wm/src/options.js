@@ -30,27 +30,29 @@ const Options = ({setGameOptions}) => {
         setGameOptions(newGameOptions);
     }
     return ( <div className="optionsDiv">
-        <div className={validOnly ? "optionsCheckbox On" : "optionsCheckbox"}
-             data-toggle="tooltip" title="Whether guess must be valid words"
-             onClick={() => {setValidOnly(!validOnly);}}
-        >
-            <label>Guesses must be valid words</label>
-        </div>
-        <div className={mode === 'easy' ? "optionsCheckbox On" : "optionsCheckbox"}
-             data-toggle="tooltip" title="Color coding shows which letters are correct or in the wrong place. Otherwise show counts only."
-             onClick={() => {setMode(mode === 'easy' ? 'hard' : 'easy');}}
-        >
-            <label>Color code the guess letters</label>
-        </div>
-        <div className={showHeader ? "optionsCheckbox On" : "optionsCheckbox"}
-            onClick={() => {setShowHeader(!showHeader);}}
-        >
-            <label>Title and link in clipboard</label>
-        </div>
-        <div className={showGuesses ? "optionsCheckbox On" : "optionsCheckbox"}
-            onClick={() => {setShowGuesses(!showGuesses);}}
-        >
-            <label>Guess words in clipboard</label>
+        <div className='checkboxes'>
+            <div className={validOnly ? "optionsCheckbox On" : "optionsCheckbox"}
+                data-toggle="tooltip" title="Whether guess must be valid words"
+                onClick={() => {setValidOnly(!validOnly);}}
+            >
+                <label>Guesses must be valid words</label>
+            </div>
+            <div className={mode === 'easy' ? "optionsCheckbox On" : "optionsCheckbox"}
+                data-toggle="tooltip" title="Color coding shows which letters are correct or in the wrong place. Otherwise show counts only."
+                onClick={() => {setMode(mode === 'easy' ? 'hard' : 'easy');}}
+            >
+                <label>Color code the guess letters</label>
+            </div>
+            <div className={showHeader ? "optionsCheckbox On" : "optionsCheckbox"}
+                onClick={() => {setShowHeader(!showHeader);}}
+            >
+                <label>Title and link in clipboard</label>
+            </div>
+            <div className={showGuesses ? "optionsCheckbox On" : "optionsCheckbox"}
+                onClick={() => {setShowGuesses(!showGuesses);}}
+            >
+                <label>Guess words in clipboard</label>
+            </div>
         </div>
         <div className='emojiDiv'>
             <p>Emoji Theme</p>
