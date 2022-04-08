@@ -228,7 +228,8 @@ const Game = ({gameOptions, setGameOptions}) => {
         return "wmEasyModeLetter wmWrongLetter " + size;
     }
     function cssEasyModeLetterSize() {
-        return (gameOptions.secretWord && gameOptions.secretWord.length > 8 ? 'small' : 'normal');
+        if (gameOptions.wordLength < 6) {return 'len3-5';}
+        return `len${gameOptions.wordLength}`;
     }
 }
 

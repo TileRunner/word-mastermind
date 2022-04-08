@@ -24,14 +24,23 @@
     text-align: center;
     padding: 3px 8px;
     font-size: 20px;
+    height: 4vh;
+    max-width: 55px;
 }
-.wmEasyModeLetter.small {
-    width: 40px;
-    height: 40px;
+.wmEasyModeLetter.len9 {
+    width: 10vw;
 }
-.wmEasyModeLetter.normal {
-    width: 45px;
-    height: 45px;
+.wmEasyModeLetter.len8 {
+    width: 11.3vw;
+}
+.wmEasyModeLetter.len7 {
+    width: 13vw;
+}
+.wmEasyModeLetter.len6 {
+    width: 15.2vw;
+}
+.wmEasyModeLetter.len3-5 {
+    width: 18vw;
 }
 .wmCorrectLetterCorrectPosition {
     background-color: greenyellow;
