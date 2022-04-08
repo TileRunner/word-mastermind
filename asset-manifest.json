@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/word-mastermind/static/css/main.7ba3f7cb.css",
-    "main.js": "/word-mastermind/static/js/main.55997e4e.js",
+    "main.css": "/word-mastermind/static/css/main.b6e66c89.css",
+    "main.js": "/word-mastermind/static/js/main.7d17e4e0.js",
     "index.html": "/word-mastermind/index.html",
     "static/media/my-logo.svg": "/word-mastermind/static/media/my-logo.f2b91043f0e6f8bac246a397bdfa6d37.svg",
-    "main.7ba3f7cb.css.map": "/word-mastermind/static/css/main.7ba3f7cb.css.map",
-    "main.55997e4e.js.map": "/word-mastermind/static/js/main.55997e4e.js.map"
+    "main.b6e66c89.css.map": "/word-mastermind/static/css/main.b6e66c89.css.map",
+    "main.7d17e4e0.js.map": "/word-mastermind/static/js/main.7d17e4e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ba3f7cb.css",
-    "static/js/main.55997e4e.js"
+    "static/css/main.b6e66c89.css",
+    "static/js/main.7d17e4e0.js"
   ]
 }
