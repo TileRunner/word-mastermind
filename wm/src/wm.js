@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import Options from "./options";
 import Game from './game';
 
-const WordMastermind = ({setWhereTo}) => {
-    const [gameOptions, setGameOptions] = useState({set:false});
+const WordMastermind = ({setWhereTo, gameOptions, setGameOptions}) => {
     return (
         <div>
             Word Mastermind
@@ -11,7 +9,7 @@ const WordMastermind = ({setWhereTo}) => {
             {gameOptions.set ?
                 <Game gameOptions={gameOptions} setGameOptions={setGameOptions}/>
             :
-                <Options setGameOptions={setGameOptions}/>
+                <Options gameOptions={gameOptions} setGameOptions={setGameOptions}/>
             }
         </div>
     );

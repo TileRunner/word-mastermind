@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { isMobile } from 'react-device-detect'
 import ShowCustomKeyboard from './showCustomKeyboard';
 import { isWordValid } from './wordfunctions';
-
+import { themes } from './themes';
 const Game = ({gameOptions, setGameOptions}) => {
     const [guess, setGuess] = useState('');
     const [guesses, setGuesses] = useState([]);
@@ -52,11 +52,11 @@ const Game = ({gameOptions, setGameOptions}) => {
             for (let l = 0; l < guessWord.length; l++) {
                 const letterResult = calcLetterResult(guessWord, l); // C, I, or W
                 if (letterResult === 'C') {
-                    copyText += gameOptions.ciw.c;
+                    copyText += themes[gameOptions.theme].c;
                 } else if (letterResult === 'I') {
-                    copyText += gameOptions.ciw.i;
+                    copyText += themes[gameOptions.theme].i;
                 } else {
-                    copyText += gameOptions.ciw.w;
+                    copyText += themes[gameOptions.theme].w;
                 }
             }
             copyText += "\n";
@@ -79,16 +79,18 @@ const Game = ({gameOptions, setGameOptions}) => {
             <thead>
                 <tr>
                     <th>Guess</th>
-                    <th>Correct Letter</th>
                     <th>Correct Position</th>
+                    <th>Wrong Position</th>
+                    <th>Incorrect Letter</th>
                 </tr>
             </thead>
             <tbody>
                 {guesses.map((g,i) => (
                     <tr key={`mode0guess${i}`}>
                         <td>{g}</td>
-                        <td className="AlignCenter">{calcCorrectLetterCount(g)}</td>
                         <td className="AlignCenter">{calcCorrectPositionCount(g)}</td>
+                        <td className="AlignCenter">{calcCorrectLetterCount(g) - calcCorrectPositionCount(g)}</td>
+                        <td className="AlignCenter">{gameOptions.wordLength - calcCorrectLetterCount(g)}</td>
                     </tr>
                 )
                 )}
@@ -132,7 +134,9 @@ const Game = ({gameOptions, setGameOptions}) => {
             <h4>👏🏽 Solved in {guesses.length} moves! 👏🏽</h4>
             <button className='MarginLeft'
             onClick={function () {
-                setGameOptions({set: false});
+                let newGameOptions = JSON.parse(JSON.stringify(gameOptions));
+                newGameOptions.set = false;
+                setGameOptions(newGameOptions);
             } }
             >
                 Play Again

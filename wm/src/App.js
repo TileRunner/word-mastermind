@@ -8,7 +8,17 @@ import WordMastermind from './wm';
 
 function App() {
   const [whereTo, setWhereTo] = useState('home');
-  return (
+  const [gameOptions, setGameOptions] = useState({
+    set: false,
+    secretWord: '',
+    mode: 'easy',
+    validOnly: true,
+    theme: 2,
+    wordLength: 5,
+    showHeader: false,
+    showGuesses: false
+});
+return (
     <div>
       {whereTo === 'home' ?
         <header className="App-header">
@@ -21,7 +31,7 @@ function App() {
         </header>
       :
         <header>
-          <WordMastermind setWhereTo={setWhereTo}/>
+          <WordMastermind setWhereTo={setWhereTo} gameOptions={gameOptions} setGameOptions={setGameOptions}/>
         </header>
       }
     </div>
