@@ -1,19 +1,16 @@
-/* Due to heroku's security issue, they prevented my deploys to tilerunner.
-   They suggested using heroku CLI, so I followed instructions and it worked, but to a new url.
-*/
-const baseurl = 'https://enigmatic-lake-42795.herokuapp.com'; //'https://tilerunner.herokuapp.com';
+const baseurl = (process.env.NODE_ENV === 'production' ? 'https://webappscrabbleclub.azurewebsites.net/api/Values' : 'https://localhost:55557/api/Values');
 
 /**
  * Determine whether a word is in the ENABLE2K lexicon, case insensitive
  * @param {string} word A word
- * @returns {Promise<Boolean>} Whether the word is in the ENABLE2K lexicon
+ * @returns {Promise<boolean>} Whether the word is in the ENABLE2K lexicon
  * @async
  */
-export async function isWordValid(word) {
-    let url = `${baseurl}/ENABLE2K?exists=${word.toLowerCase()}`;
+ export async function isWordValid(word) {
+    let url = `${baseurl}/ENABLE2K/exists?word=${word}`;
     const response = await fetch(url);
     const jdata = await response.json();
-    return jdata.exists;
+    return jdata.value;
 }
 
 /**
@@ -23,8 +20,8 @@ export async function isWordValid(word) {
  * @async
  */
 export async function pickRandomWord(wordLength) {
-    const url = `${baseurl}/ENABLE2K?random=${wordLength}`;
+    const url = `${baseurl}/ENABLE2K/random?length=${wordLength}`;
     const response = await fetch(url);
     const jdata = await response.json();
-    return jdata;
+    return jdata.value;
 }
