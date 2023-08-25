@@ -5,9 +5,19 @@
 .App-under-logo {
   margin-top: 10vmin;
   text-align: center;
+  display:flex;
+  width: 100vw;
+}
+.App-under-logo td {
+  background-color: #61dafb;
+  width: 33.33%;
+}
+.App-under-logo td:nth-child(2) {
+  border-radius: 50%;
+  padding-top: 70px;
 }
 .App-under-logo button {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(30px + 2vmin);
   border: 3px solid whitesmoke;
   background-color: #282c34;
   color: whitesmoke;
@@ -30,7 +40,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.App-header h3 {
+  margin-left: 5vw;
+}
+.App-header a {
+  color: blue;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -22,12 +22,24 @@ return (
     <div>
       {whereTo === 'home' ?
         <header className="App-header">
-          <img src={mylogo} className="App-logo" alt="logo" />
-          <div className='App-under-logo'>
-            <p>Based on the 1970 Mastermind game with colored pegs.</p>
-            <p>Additional options inspired by Wordle.</p>
-            <button onClick={() => {setWhereTo('game');}}>Play !</button>
+          <div>
+            <img src={mylogo} className="App-logo" alt="logo" />
           </div>
+          <table>
+            <tr className='App-under-logo'>
+              <td>
+                <a href="http://www.scrabbleplayers.org"><img border="0" src="http://www.scrabbleplayers.org/pix/logo-only-160px.png" alt="[NASPA Logo]"/></a>
+                <p>NWL20 used with permission from NASPA</p>
+              </td>
+              <td>
+                <button onClick={() => {setWhereTo('game');}}>Play !</button>
+              </td>
+              <td>
+                <p>Based on the 1970 Mastermind game with colored pegs.</p>
+                <p>Additional options inspired by Wordle.</p>
+              </td>
+            </tr>
+          </table>
         </header>
       :
         <header>
