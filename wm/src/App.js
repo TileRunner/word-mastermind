@@ -29,7 +29,7 @@ return (
             <tr className='App-under-logo'>
               <td>
                 <a href="http://www.scrabbleplayers.org"><img border="0" src="http://www.scrabbleplayers.org/pix/logo-only-160px.png" alt="[NASPA Logo]"/></a>
-                <p>NWL20 used with permission from NASPA</p>
+                <p>NWL2023 used with permission from NASPA</p>
               </td>
               <td>
                 <button onClick={() => {setWhereTo('game');}}>Play !</button>
